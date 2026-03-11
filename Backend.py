@@ -18,9 +18,9 @@ class Usuarios():
     
     @classmethod
     def guardar_usuarios(cls):
-        campos=["Nombre", "Edad"]
-        with open("persona.cvs", "w",encoding="utf-8") as f:
-            escritor=csv.DicWriter(f, fieldnames=campos)
+        campos = ["Nombre", "Edad"]
+        with open("persona.csv", "w", encoding="utf-8") as f:  # ✅ .csv (no .cvs)
+            escritor = csv.DictWriter(f, fieldnames=campos)     # ✅ DictWriter (no DicWriter)
             escritor.writeheader()
             for u in cls.lista:
                 escritor.writerow({"Nombre": u.name, "Edad": u.age})
